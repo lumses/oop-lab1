@@ -1,1 +1,2 @@
 8 Hexagon Octagon Triangle
+done lab1
