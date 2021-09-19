@@ -1,0 +1,16 @@
+{
+  "variant": 8,
+  "figures": [
+    "Hexagon",
+    "Octagon",
+    "Triangle"
+  ],
+  "containers": [
+    "TLinkedList",
+    "TVector"
+  ],
+  "finished_labs": {
+    "lab1": "lab1",
+    "lab2": "lab2"
+  }
+}
