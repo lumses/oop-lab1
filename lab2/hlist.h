@@ -24,7 +24,6 @@ public:
 private:
   HListItem *first;
   HListItem *last;
-  HListItem *node;
 };
  
 #endif // HList_H
