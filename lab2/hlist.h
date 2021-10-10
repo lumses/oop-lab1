@@ -10,7 +10,6 @@ public:
   int size_of_list;
   void size();
   void empty();
-  void copy(HListItem*& cur,HListItem* cp);
   HListItem* front();
   HListItem* back();
   void push_front(Hexagon &&hexagon);
