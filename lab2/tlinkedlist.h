@@ -9,15 +9,16 @@ public:
   TLinkedList();
   int size_of_list;
   size_t Length();
-  void Empty();
+  void empty();
   HListItem* First();
   HListItem* Last();
   HListItem* GetItem(size_t idx);
-  void InsertFirst(Hexagon &&hexagon);
-  void InsertLast(Hexagon &&hexagon);
+  void Empty();
+  void InsertFirst(const Hexagon &&hexagon);
+  void InsertLast(const Hexagon &&hexagon);
   void RemoveLast();
   void RemoveFirst();
-  void Insert(Hexagon &&hexagon, size_t position);
+  void Insert(const Hexagon &&hexagon, size_t position);
   void Remove(size_t position);
   void Clear();
   friend std::ostream& operator<<(std::ostream& os, TLinkedList& list);
@@ -25,7 +26,6 @@ public:
 private:
   HListItem *front;
   HListItem *back;
-  HListItem *node;
 };
  
 #endif // HList_H
