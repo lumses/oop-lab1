@@ -1,96 +1,96 @@
 #include <iostream>
-#include "hlist.h"
+#include "tlinkedlist.h"
  
-HList::HList() {
+TLinkedList::TLinkedList() {
   size_of_list = 0;
   HListItem* first;
   HListItem* last;
   std::cout << "Hexagon List created" << std::endl; 
 }
-void HList::size() {
-  std::cout << "Size of Hexagon List is "<< size_of_list << std::endl;
+size_t TLinkedList::Length() {
+  return size_of_list;
 }
-void HList::empty() {
+void TLinkedList::Empty() {
   if (size_of_list == 0){
     std::cout << "Hexagon List is empty" << std::endl;
   } else {
     std::cout << "Hexagon List is not empty" << std::endl;
   }
 }
-HListItem* HList::front() {
-  return first;
+HListItem* TLinkedList::First() {
+  return front;
 }
-HListItem* HList::back() {
-  return last;
+HListItem* TLinkedList::Last() {
+  return back;
 }
-void HList::push_back(Hexagon &&hexagon) {
+void TLinkedList::InsertLast(Hexagon &&hexagon) {
   HListItem* obj = new HListItem(hexagon);
   if(size_of_list == 0) {
-    first = obj;
-    last = obj;
+    front = obj;
+    back = obj;
     size_of_list++;
     return;
   }
-  last->next = obj;
-  last = obj;
+  back->next = obj;
+  back = obj;
   obj->next = nullptr;
   size_of_list++;
 }
-void HList::pop_back() {
+void TLinkedList::RemoveLast() {
   if (size_of_list == 0) {
     std::cout << "Hexagon does not pop_back, because the Hexagon List is empty" << std:: endl;
   } else {
-    if (first == last) {
-      pop_front();
+    if (front == back) {
+      RemoveFirst();
       size_of_list--;
       return;
     }
-    HListItem* prev_del = first;
-    while (prev_del->next != last) {
+    HListItem* prev_del = front;
+    while (prev_del->next != back) {
       prev_del = prev_del->next;
     }
     prev_del->next = nullptr;
-    delete last;
-    last = prev_del;
+    delete back;
+    back = prev_del;
     size_of_list--;
     } 
 }
-void HList::push_front(Hexagon &&hexagon) {
+void TLinkedList::InsertFirst(Hexagon &&hexagon) {
     HListItem* obj = new HListItem(hexagon);
     if(size_of_list == 0) {
-      first = obj;
-      last = obj;
+      front = obj;
+      back = obj;
     } else {
-      obj->next = first;
-      first = obj;
+      obj->next = front;
+      back = obj;
     }
     size_of_list++;
 }
-void HList::pop_front() {
+void TLinkedList::RemoveFirst() {
     if (size_of_list == 0) {
       std::cout << "Hexagon does not pop_front, because the Hexagon List is empty" << std:: endl;
     } else {
-    HListItem* del = first;
-    first = del->next;
+    HListItem* del = front;
+    front = del->next;
     delete del;
     size_of_list--;
     }
 }
-void HList::insert(Hexagon &&hexagon,int pos) {
-  if (pos <0) {
+void TLinkedList::Insert(Hexagon &&hexagon,size_t position) {
+  if (position <0) {
     std::cout << "Position < zero" << std::endl;
-  } else if (pos > size_of_list) {
+  } else if (position > size_of_list) {
     std::cout << " Position > size_of_list" << std::endl;
   } else {
     HListItem* obj = new HListItem(hexagon);
-    if (pos == 0) {
-      first = obj;
-      last = obj;
+    if (position == 0) {
+      front = obj;
+      back = obj;
     } else {
       int k = 0;
-      HListItem* prev_insert = first;
+      HListItem* prev_insert = front;
       HListItem* next_insert;
-      while(k+1 != pos) {
+      while(k+1 != position) {
         k++;
         prev_insert = prev_insert->next;
       }
@@ -101,20 +101,20 @@ void HList::insert(Hexagon &&hexagon,int pos) {
     size_of_list++;
   }
 }
-void HList::erase(int pos) {
-  if ( pos > size_of_list ) {
-    std:: cout << "Position " << pos << " > " << "size " << size_of_list << " Not correct erase" << std::endl;
-  } else if (pos < 0) {
+void TLinkedList::Remove(size_t position) {
+  if ( position > size_of_list ) {
+    std:: cout << "Position " << position << " > " << "size " << size_of_list << " Not correct erase" << std::endl;
+  } else if (position < 0) {
     std::cout << "Position < 0" << std::endl;
   } else {
-    if (pos == 0) {
-      pop_front();
+    if (position == 0) {
+      RemoveFirst();
     } else {
       int k = 0;
-      HListItem* prev_erase = first;
+      HListItem* prev_erase = front;
       HListItem* next_erase;
       HListItem* del;
-      while( k+1 != pos) {
+      while( k+1 != position) {
         k++;
         prev_erase = prev_erase->next;
       }
@@ -127,8 +127,8 @@ void HList::erase(int pos) {
     size_of_list--;
   }
 }
-void HList::clear() {
-  HListItem* del = first;
+void TLinkedList::Clear() {
+  HListItem* del = front;
   HListItem* prev_del;
   if(size_of_list !=0 ) {
     while(del->next != nullptr) {
@@ -141,15 +141,15 @@ void HList::clear() {
     //   std::cout << "HListItem deleted" << std::endl;
   } 
   size_of_list = 0;
-  HListItem* first;
-  HListItem* last;
+  HListItem* front;
+  HListItem* back;
 }
-std::ostream& operator<<(std::ostream& os, HList& hl) {
+std::ostream& operator<<(std::ostream& os, TLinkedList& hl) {
   if (hl.size_of_list == 0) {
     os << "The hexagon list is empty, so there is nothing to output" << std::endl;
   } else {
     os << "Print Hexagon List" << std::endl;
-    HListItem* obj = hl.first;
+    HListItem* obj = hl.front;
     while(obj != nullptr) {
       if (obj->next != nullptr) {
         os << obj->hexagon << " " << "," << " ";
@@ -163,8 +163,8 @@ std::ostream& operator<<(std::ostream& os, HList& hl) {
   }
   return os;
 }
-HList::~HList() {
-  HListItem* del = first;
+TLinkedList::~TLinkedList() {
+  HListItem* del = front;
   HListItem* prev_del;
   if(size_of_list !=0 ) {
     while(del->next != nullptr) {
