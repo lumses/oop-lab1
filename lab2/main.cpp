@@ -14,7 +14,8 @@ int main() {
   tlinkedlist.InsertFirst(Hexagon(Point(2,3),Point(3,4),Point(4,5),Point(5,6),Point(6,7),Point(7,8)));
   tlinkedlist.Insert(Hexagon(Point(1,1),Point(2,3),Point(3,4),Point(5,6),Point(7,8),Point(9,16)),2);
   tlinkedlist.Empty();
-  std::cout << *tlinkedlist.GetItem(2) << std::endl;
+  std::cout << tlinkedlist.First() << std::endl;
+  std::cout << tlinkedlist.GetItem(2) << std::endl;
   tlinkedlist.Remove(2);
   std::cout << tlinkedlist;
   tlinkedlist.Clear();
