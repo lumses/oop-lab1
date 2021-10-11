@@ -5,7 +5,7 @@
 
 class HListItem {
 public:
-  HListItem(Hexagon &hexagon);
+  HListItem(const Hexagon &hexagon);
   friend std::ostream& operator<<(std::ostream& os, HListItem& obj);
   ~HListItem();
   Hexagon hexagon;
