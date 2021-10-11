@@ -3,8 +3,8 @@
  
 TLinkedList::TLinkedList() {
   size_of_list = 0;
-  HListItem* first;
-  HListItem* last;
+  HListItem* front;
+  HListItem* back;
   std::cout << "Hexagon List created" << std::endl; 
 }
 size_t TLinkedList::Length() {
