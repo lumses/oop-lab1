@@ -22,7 +22,7 @@ Hexagon::~Hexagon() {
 size_t Hexagon::VertexesNumber() {
     return 6;
 }
-Hexagon::Hexagon(Hexagon& other):Hexagon(other.a,other.b,other.c,other.d,other.e,other.f) {
+Hexagon::Hexagon(std::shared_ptr<Hexagon>& other):Hexagon(other->a,other->b,other->c,other->d,other->e,other->f) {
 } 
 Hexagon& Hexagon::operator = (const Hexagon& other) {
   if (this == &other) return *this;
@@ -42,7 +42,8 @@ Hexagon& Hexagon::operator == (const Hexagon& other) {
     std::cout << "Hexagons are not equal" << std::endl;
   } 
 } 
-std::ostream& operator<<(std::ostream& os, Hexagon& h) {
-  os << h.a << h.b << h.c << h.d << h.e << h.f;
+std::ostream& operator<<(std::ostream& os, std::shared_ptr<Hexagon>& h) {
+  os << h->a << h->b << h->c << h->d << h->e << h->f;
   return os;
 }
+
