@@ -23,7 +23,7 @@ HListItem* TLinkedList::First() {
 HListItem* TLinkedList::Last() {
   return back;
 }
-void TLinkedList::InsertLast(Hexagon &&hexagon) {
+void TLinkedList::InsertLast(const Hexagon &&hexagon) {
   HListItem* obj = new HListItem(hexagon);
   if(size_of_list == 0) {
     front = obj;
@@ -55,7 +55,7 @@ void TLinkedList::RemoveLast() {
     size_of_list--;
     } 
 }
-void TLinkedList::InsertFirst(Hexagon &&hexagon) {
+void TLinkedList::InsertFirst(const Hexagon &&hexagon) {
     HListItem* obj = new HListItem(hexagon);
     if(size_of_list == 0) {
       front = obj;
@@ -76,7 +76,7 @@ void TLinkedList::RemoveFirst() {
     size_of_list--;
     }
 }
-void TLinkedList::Insert(Hexagon &&hexagon,size_t position) {
+void TLinkedList::Insert(const Hexagon &&hexagon,size_t position) {
   if (position <0) {
     std::cout << "Position < zero" << std::endl;
   } else if (position > size_of_list) {
