@@ -10,9 +10,9 @@ public:
   int size_of_list;
   size_t Length();
   void empty();
-  HListItem* First();
-  HListItem* Last();
-  Hexagon* GetItem(size_t idx);
+  Hexagon& First();
+  Hexagon& Last();
+  Hexagon& GetItem(size_t idx);
   void Empty();
   void InsertFirst(const Hexagon &&hexagon);
   void InsertLast(const Hexagon &&hexagon);
