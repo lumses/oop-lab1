@@ -1,7 +1,7 @@
 #include <iostream>
 #include "hlist_item.h"
 
-HListItem::HListItem(Hexagon &hexagon) {
+HListItem::HListItem(const Hexagon &hexagon) {
   this->hexagon = hexagon;
   this->next = nullptr;
 }
