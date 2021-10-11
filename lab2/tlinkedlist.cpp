@@ -17,20 +17,20 @@ void TLinkedList::Empty() {
     std::cout << "Hexagon List is not empty" << std::endl;
   }
 }
-Hexagon* TLinkedList::GetItem(size_t idx){
+Hexagon& TLinkedList::GetItem(size_t idx){
   int k = 0;
   HListItem* obj = front;
   while (k != idx){
     k++;
     obj = obj->next;
   }
-  return &obj->hexagon;
+  return obj->hexagon;
 }
-HListItem* TLinkedList::First() {
-  return front;
+Hexagon& TLinkedList::First() {
+  return front->hexagon;
 }
-HListItem* TLinkedList::Last() {
-  return back;
+Hexagon& TLinkedList::Last() {
+  return back->hexagon;
 }
 void TLinkedList::InsertLast(const Hexagon &&hexagon) {
   HListItem* obj = new HListItem(hexagon);
