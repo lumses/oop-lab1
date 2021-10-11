@@ -12,7 +12,7 @@ public:
   void empty();
   HListItem* First();
   HListItem* Last();
-  HListItem* GetItem(size_t idx);
+  Hexagon* GetItem(size_t idx);
   void Empty();
   void InsertFirst(const Hexagon &&hexagon);
   void InsertLast(const Hexagon &&hexagon);
@@ -29,4 +29,3 @@ private:
 };
  
 #endif // HList_H
-
