@@ -7,15 +7,15 @@ TLinkedList::TLinkedList() {
   std::shared_ptr<HListItem> back;
   std::cout << "Hexagon List created" << std::endl; 
 }
+TLinkedList::TLinkedList(const std::shared_ptr<TLinkedList> &other){
+  front = other->front;
+  back = other->back;
+}
 size_t TLinkedList::Length() {
   return size_of_list;
 }
-void TLinkedList::Empty() {
-  if (size_of_list == 0){
-    std::cout << "Hexagon List is empty" << std::endl;
-  } else {
-    std::cout << "Hexagon List is not empty" << std::endl;
-  }
+bool TLinkedList::Empty() {
+  return size_of_list;
 }
 std::shared_ptr<Hexagon>& TLinkedList::GetItem(size_t idx){
   int k = 0;
