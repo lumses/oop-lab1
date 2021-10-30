@@ -9,11 +9,11 @@ public:
   TLinkedList();
   int size_of_list;
   size_t Length();
-  void empty();
   std::shared_ptr<Hexagon>& First();
   std::shared_ptr<Hexagon>& Last();
   std::shared_ptr<Hexagon>& GetItem(size_t idx);
-  void Empty();
+  bool Empty();
+  TLinkedList(const std::shared_ptr<TLinkedList> &other);
   void InsertFirst(const std::shared_ptr<Hexagon> &&hexagon);
   void InsertLast(const std::shared_ptr<Hexagon> &&hexagon);
   void RemoveLast();
@@ -29,4 +29,5 @@ private:
 };
  
 #endif // HList_H
+
 
