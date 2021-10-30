@@ -9,11 +9,11 @@ public:
   TLinkedList();
   int size_of_list;
   size_t Length();
-  void empty();
+  bool Empty();
   Hexagon& First();
   Hexagon& Last();
+  TLinkedList(const TLinkedList& other);
   Hexagon& GetItem(size_t idx);
-  void Empty();
   void InsertFirst(const Hexagon &&hexagon);
   void InsertLast(const Hexagon &&hexagon);
   void RemoveLast();
