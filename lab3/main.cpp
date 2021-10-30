@@ -14,7 +14,7 @@ int main() {
   tlinkedlist.RemoveFirst();
   tlinkedlist.InsertFirst(std::shared_ptr<Hexagon>(new Hexagon(Point(2,3),Point(3,4),Point(4,5),Point(5,6),Point(6,7),Point(7,8))));
   tlinkedlist.Insert(std::shared_ptr<Hexagon>(new Hexagon(Point(1,1),Point(2,3),Point(3,4),Point(5,6),Point(7,8),Point(9,16))),2);
-  tlinkedlist.Empty();
+  std::cout << tlinkedlist.Empty() << std::endl;
   std::cout << tlinkedlist.First() << std::endl;
   std::cout << tlinkedlist.Last() << std::endl;
   std::cout << tlinkedlist.GetItem(2) << std::endl;
