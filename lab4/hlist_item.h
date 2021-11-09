@@ -12,5 +12,5 @@ public:
   std::shared_ptr<T> hexagon;
   std::shared_ptr<HListItem<T>> next;
 };
-#include "hlist_item1.inl"
+#include "hlist_item.inl"
 #endif //HLISTITEM_H
