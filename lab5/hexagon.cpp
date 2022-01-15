@@ -46,3 +46,4 @@ std::ostream& operator<<(std::ostream& os, Hexagon& h) {
   os << h.a << h.b << h.c << h.d << h.e << h.f;
   return os;
 }
+
